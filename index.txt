@@ -1,4 +1,3 @@
-
 <!-- saved from url=(0018)http://360jyx.com/ -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=GBK"><script id="hz6d_send_acc" src="./files/sendacc.jsp" charset="utf-8"></script>
 
@@ -306,7 +305,13 @@
         <div class="xiguoyou">    </div>
         <div><img src="./files/QQ20171202145220_129.gif" width="960" height="558" alt=""></div>
     </div>
-    <div style="text-align: center; padding: 15px 0; font-weight: 700;">这就是易初堂戒烟精华液顾问的微信二维码，有需要可以加一下她！<br><span class="statistics02"><script language="JavaScript">document.write(wechat_pic)</script><img src="./files/微信图片_20180929234741.jpg" width="560" height="558" alt=""></div>
+    <div style="text-align: center; padding: 15px 0; font-weight: 700;">这就是易初堂戒烟精华液顾问的微信二维码，有需要可以加一下她！<br><span class="statistics02">
+        <script language="JavaScript">document.write(wechat_pic)</script>
+        <img src="./files/微信图片_20180929234741.jpg" width="560" height="558" alt="">
+        <p style="margin:5px 0;"><b></b></p>
+        <p style="text-align:center;margin:5px 0;"><font class="statistics021"></font></p>
+        <p style="margin:5px 0;">微信扫描上方海燕草堂口气清新顾问微信二维码。<!-- <b><span class="weixinid" name="notweixin"> hzj8366 </span></b> --></p>
+    </div>
 
     <div  class="side" style="z-index:1000;line-height:1.5; font-size:14px;position:fixed; width:250px; top:110px; left:50%; margin-left:240px; border:#ccc 1px solid;padding-left:10px; padding-right:10px; padding-bottom:10px; padding-top:10px; background:#fff;">
 	<p class="f-tac" style="font-size:20px;font-weight:900;padding:10px;color:#000;color:#F00;background-color:#FF0;text-align: center;">微信扫描二维码</p>
@@ -317,9 +322,7 @@
     </div>
 
 
-    <p style="margin:5px 0;"><b></b></p>
-    <p style="text-align:center;margin:5px 0;"><font class="statistics021"></font></p>
-    <p style="margin:5px 0;">微信扫描上方海燕草堂口气清新顾问微信二维码。<!-- <b><span class="weixinid" name="notweixin"> hzj8366 </span></b> --></p>
+
 
     <div id="order" class="bkxtp" style="padding:5px 0;">
         <iframe scrolling="No" frameborder="0" src="files/order.html" marginheight="0" marginwidth="0" width="960px" height="400px"></iframe>
@@ -329,5 +332,6 @@
 </div>
 
 </body></html>
+
 
 
