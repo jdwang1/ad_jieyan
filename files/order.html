@@ -5,10 +5,54 @@
 <TITLE>张振亚戒烟香官方网站-在线订购系统</TITLE>
 <meta name="keywords" content="在线订购张振亚戒烟香">
 <meta name="description" content="张振亚戒烟香官网提醒您：只需要输入订购信息，我们客服人员将会在24小时内跟您联系确认地址发货！">
-<META http-equiv=Content-Type content="text/html; charset=GBK">
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
 <link href="http://shop.3tjy.com/img/public.css" rel="stylesheet" type="text/css" />
 <SCRIPT language=javascript>
- function checkform(){
+
+        var code;
+        function createCode()
+        {
+         code = "";
+         var codeLength = 6; //验证码的长度
+         var checkCode = document.getElementById("checkCode");
+         var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+              'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+              'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //所有候选组成验证码的字符，当然也可以用中文的
+         for(var i = 0; i < codeLength; i++)
+         {
+          var charNum = Math.floor(Math.random() * 52);
+          code += codeChars[charNum];
+         }
+         if(checkCode)
+         {
+          checkCode.className = "code";
+          checkCode.innerHTML = code;
+         }
+
+        }
+        function validateCode()
+        {
+         var inputCode=document.forma.pwd.value;
+         if(inputCode.length <= 0)
+         {
+          alert("请输入验证码！");
+         }
+         else if(inputCode.toUpperCase() != code.toUpperCase())
+         {
+           alert("验证码输入有误！");
+           createCode();
+         }
+         else
+         {
+          // alert("验证码正确！");
+          return true;
+         }
+         return false;
+        }
+
+
+
+    function checkform(){
             	if(document.forma.username.value==''){
             		alert('请填写收货人的姓名！');
             		document.forma.username.focus();
@@ -51,9 +95,10 @@
             		alert('提示：留言必须填写！');
             		document.forma.guest.focus();
             		return false;
-            	}		
-				
-    return true;
+            	}
+
+                return validateCode();
+    // return true;
 	
 }
 </SCRIPT>
@@ -69,12 +114,13 @@ MM_reloadPage(true);
 // -->
 </SCRIPT>
 </HEAD>
-<BODY>
+<BODY onload="createCode()">
 
 <DIV id=wforder>
   <DIV class=wforderl>
-    <FORM name=forma onSubmit="return checkform();" action="http://119.29.81.170:8088/submit" method=post style="width:100%;margin:0;" target="_self">
-	
+    <!--<FORM name=forma onSubmit="return checkform();" action="http://119.29.81.170:8088/submit" method=post style="width:100%;margin:0;" target="_self">-->
+    <FORM name=forma onSubmit="return checkform();" action="http://0.0.0.0:8080/submit" method=post style="width:100%;margin:0;" target="_self">
+
 	<input type="hidden" value="" name="referer" id="referer">
 
 <input type="hidden" value="" name="url" id="url">
@@ -123,7 +169,7 @@ document.getElementById("purl").value = document.location;
             <select id="s_province" name="s_province"></select>&nbsp;&nbsp;
     <select id="s_city" name="s_city" ></select>&nbsp;&nbsp;
     <select id="s_county" name="s_county"></select>
-    <script type="text/javascript" src="http://shop.3tjy.com/area.js"></script>
+    <script type="text/javascript" src="js/area.js"></script>
     <script type="text/javascript">_init_area();</script> </SPAN></LI>
           <LI><SPAN class=bdl><EM>*</EM>收货地址：</SPAN><SPAN class=bdr>
             <INPUT 
@@ -131,10 +177,22 @@ document.getElementById("purl").value = document.location;
           <font color="#999999">例：X路X号X小区 </font></SPAN></LI>
           <LI class=guest style="height:48px;"><SPAN class=bdl><EM>*</EM>附加留言</SPAN><SPAN class=bdr>
             <TEXTAREA name=guest cols="2" class="guest wydb" style="height:48px;">请尽快发货，送货之前请电话联系，谢谢！</TEXTAREA>
-          </SPAN></LI> 
-          <LI style="margin-top:15px;"><SPAN class=bdl><EM>*</EM>验证码：</SPAN><SPAN class=bdr>
-            <input type="text" name="CheckCode" id="pwd" class="inp" placeholder='验证码'  style="width:80px;float:left; height:20px; line-height:20px;"/> <img id="vdimgck" align="absmiddle" onClick="this.src=this.src+'?';" style="cursor:pointer;margin-left:0px;text-transform:uppercase;" alt="看不清？点击更换" src="http://shop.3tjy.com/Code_11.asp"  height="20" />
           </SPAN></LI>
+
+
+          <LI style="margin-top:15px;">
+              <SPAN class=bdl><EM>*</EM>验证码：</SPAN>
+              <SPAN class=bdr>
+                  <input type="text" name="CheckCode" id="pwd" class="inp" placeholder='验证码'  style="width:80px;float:left; height:20px; line-height:20px;"/>
+                  <div style="cursor:pointer;margin-left:0px;text-transform:uppercase; PADDING-LEFT:100px;" >
+                      <span class="code" id="checkCode" nclick="createCode()" ></span> &nbsp; &nbsp;&nbsp;
+                      <a href="#" onclick="createCode()">看不清换一张</a>
+                  </div>
+
+              <!--<img id="vdimgck" align="absmiddle" onClick="createCode();" style="cursor:pointer;margin-left:0px;text-transform:uppercase;" alt="看不清？点击更换" src="http://shop.3tjy.com/Code_11.asp"  height="20" />-->
+          </SPAN></LI>
+
+
           <LI style="margin-top:5px;"><SPAN class=bdl><EM></EM></SPAN><SPAN class=bdr>
             <INPUT class="send suba" value=提交订单 type=submit name=submit>
             <input type="reset" name="reset" value="重新填写" class="send subb" />
@@ -147,7 +205,7 @@ document.getElementById("purl").value = document.location;
     <DIV class=wftitle><IMG src="http://shop.3tjy.com/img/fhtit.gif" alt="tt"></DIV>
     <DIV style="OVERFLOW: hidden" id=wffahuo>
       <DIV style="OVERFLOW: hidden" id=wffahuo1>
-        <SCRIPT type=text/javascript src="http://shop.3tjy.com/img/fahuo.js"></SCRIPT>
+        <SCRIPT type=text/javascript src="js/fahuo.js"></SCRIPT>
       </DIV>
       <DIV id=wffahuo2></DIV>
     </DIV>
